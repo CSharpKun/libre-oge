@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{musixtex}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setdefaultlanguage{russian}
+
+\title{Демоверсия ОГЭ по музыке (для гиков)}
+\author{Разработчики-Музыканты}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+\section*{Задание 1. Определение аккорда по коду}
+Определите тип аккорда, представленного на нотном стане ниже.
+
+\begin{music}
+  % 1 инструмент, 1 нотный стан, скрипичный ключ
+  \instrumentnumber{1}
+  \setstaffs1{1}
+  \setclef1{\treble}
+
+  \startpiece
+    % \zh - половинная нота БЕЗ продвижения курсора (Zero-width Half note)
+    % Пишем аккорд До-мажор (До-Ми-Соль первой октавы)
+    % Буквы c, e, g - это высоты нот в синтаксисе MusiXTeX
+    \notes \zh c \zh e \ha g \enotes
+    \Endpiece
+\end{music}
+
+\section*{Задание 2. Исправление багов в мелодии}
+Найдите синтаксическую ошибку в ритмическом рисунке такта.
+
+\begin{music}
+  \startpiece
+    % \qa - четвертная, \ha - половинная. 
+    % Сумма длительностей в такте 4/4 должна сойтись!
+    \notes \qa c \qa d \ha e \enotes
+    \bar
+    \notes \qa f \qa g \qa h \qa i \enotes
+    \endpiece
+\end{music}
+
+\end{document}
