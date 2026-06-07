@@ -1,25 +1,32 @@
-\documentclass{article}
+%% oge-template.tex
+%% Copyright 2026 CSharpKun & PositiveCHEEK
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is CSharpKun
 
-\usepackage{musixtex}
-\usepackage{fancyhdr}
+\documentclass{exam}
+
 \usepackage{fontspec}
 \usepackage{polyglossia}
 
 \setdefaultlanguage{russian}
 \setmainfont{Liberation Serif} 
 
-\title{Основной государственный экзамен по МУЗЫКЕ}
 \author{CSharpKun \& PositiveCHEEK}
 \date{2026}
 
-\pagestyle{fancy}
-\fancyhf{}
-
 \makeatletter
-	\fancyfoot[C]{© {\@date} \@author}
+	\footer{}{© {\@date} \@author}{}
 \makeatother
-
-\renewcommand{\headrulewidth}{0pt}
 
 \newcommand{\task}[1]{%
 	\noindent
@@ -29,12 +36,22 @@
 	}%
 }
 
+\newcommand{\descbox}[1]{
+	\fbox{
+		\parbox{1.0\textwidth}{ 
+			#1
+		}
+	}
+}
+
+\renewcommand{\thechoice}{\arabic{choice}}
+
 \setlength{\parindent}{25pt}
 
-\begin{document}
+\begin{document} % НАЧАЛО ДОКУМЕНТА
 
 \begin{center}
-	\large{\textbf{Основной государственный экзамен по МУЗЫКЕ}}
+	\textbf{\large{Основной государственный экзамен по [ПРЕДМЕТ]}}
 \end{center}
 
 \begin{center}
@@ -43,10 +60,12 @@
 
 
 Экзаменационная работа состоит из двух частей, включающих в себя
-25 заданий. Часть 1 содержит 20 заданий, часть 2 содержит 5 заданий.
+[КОЛИЧЕСТВО ЗАДАНИЙ] заданий. Часть 1 содержит [КОЛИЧЕСТВО ЗАДАНИЙ 1 ЧАСТИ] заданий, часть 2 содержит [КОЛИЧЕСТВО ЗАДАНИЙ 2 ЧАСТИ] заданий.
 
 На выполнение экзаменационной работы по музыке отводится
-2 часа (120 минут).
+[ВСЕГО ЧАСОВ] ([ВСЕГО МИНУТ]).
+
+% Напишите ваши требования к ответам на задачи
 
 Ответами к заданиям части 1 является число или
 последовательность цифр. Ответ запишите в поле ответа в тексте работы,
@@ -70,9 +89,13 @@
 в тексте контрольных измерительных материалов не учитываются при
 оценивании работы.}
 
+% Убрать если рисунков нет
+
 Если задание содержит рисунок, то на нём непосредственно в тексте
 работы можно выполнять необходимые Вам построения. Рекомендуем
 внимательно читать условие и проводить проверку полученного ответа.
+
+% Убрать если справочных материалов нет
 
 При выполнении работы Вы можете воспользоваться справочными
 материалами, выданными вместе с вариантом КИМ.
@@ -96,53 +119,43 @@
 	\textbf{\large{Часть 1}}
 \end{center}
 
+% Изменить под ваши требования к первой части
+
 \begin{center}
-\fbox{
-	\parbox{0.9\textwidth}{
-		\textbf{\textit{Ответами к заданиям 1–20 являются число или последовательность
-				цифр, которые следует записать в БЛАНК ОТВЕТОВ № 1 справа от
-				номера соответствующего задания, начиная с первой клеточки. Если
-				ответом является последовательность цифр, то запишите её \underline{без
-				пробелов и других дополнительных символов}. Каждый символ пишите
-				в отдельной клеточке в соответствии с приведёнными в бланке
-				образцами.
-			}
+\descbox{
+	\textbf{
+		\textit{
+			Ответами к заданиям 1–[ВСЕГО ЗАДАНИЙ] являются число или последовательность
+			цифр, которые следует записать в БЛАНК ОТВЕТОВ № 1 справа от
+			номера соответствующего задания, начиная с первой клеточки. Если
+			ответом является последовательность цифр, то запишите её \underline{без
+			пробелов и других дополнительных символов}. Каждый символ пишите
+			в отдельной клеточке в соответствии с приведёнными в бланке
+			образцами.
 		}
 	}
 }
 \end{center}
 
 \task{1}
-Подпишите названия данных нот в указанном ключе.
-
-\begin{music}
-  % 1 инструмент, 1 нотный стан, скрипичный ключ
-  \instrumentnumber{1}
-  \setstaffs1{1}
-  \setclef1{\treble}
-
-  \startpiece
-    % \zh - половинная нота БЕЗ продвижения курсора (Zero-width Half note)
-    % Пишем аккорд До-мажор (До-Ми-Соль первой октавы)
-    % Буквы c, e, g - это высоты нот в синтаксисе MusiXTeX
-    \notes \zh c \zh e \ha g \enotes
-    \Endpiece
-\end{music}
+[ТЕКСТ ПЕРВОГО ЗАДАНИЯ]
+\bigskip
+\bigskip
 
 \task{2}
-Определите количество знаков в тональности "{Тональность}".
+[ТЕКСТ ВТОРОГО ЗАДАНИЯ]
+
+\begin{oneparchoices}
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+	\CorrectChoice [ПРАВИЛЬНЫЙ ВЫБОР]
+	\choice [ВЫБОР]
+\end{oneparchoices}
+
+\bigskip
+\bigskip
 
 \task{3}
-Определите размер данной мелодии.
-
-\begin{music}
-  \startpiece
-    % \qa - четвертная, \ha - половинная. 
-    % Сумма длительностей в такте 4/4 должна сойтись!
-    \notes \qa c \qa d \ha e \enotes
-    \bar
-    \notes \qa f \qa g \qa h \qa i \enotes
-    \endpiece
-\end{music}
+[ТЕКСТ ТРЕТЬЕГО ЗАДАНИЯ]
 
 \end{document}
