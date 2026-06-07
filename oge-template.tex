@@ -13,48 +13,19 @@
 % 
 % The Current Maintainer of this work is CSharpKun
 
-\documentclass{exam}
-
-\usepackage{fontspec}
-\usepackage{polyglossia}
-
-\setdefaultlanguage{russian}
-\setmainfont{Liberation Serif} 
+\documentclass[12pt]{oge-ege}
+\usepackage{lua-ul}
 
 \author{CSharpKun \& PositiveCHEEK}
 \date{2026}
-
-\makeatletter
-	\footer{}{© {\@date} \@author}{}
-\makeatother
-
-\newcommand{\task}[1]{%
-	\noindent
-	\makebox[0pt][r]{%
-		\fbox{\makebox[0.8cm][c]{\textbf{#1}}}%
-		\hspace{0.2cm}%
-	}%
-}
-
-\newcommand{\descbox}[1]{
-	\fbox{
-		\parbox{1.0\textwidth}{ 
-			#1
-		}
-	}
-}
-
-\renewcommand{\thechoice}{\arabic{choice}}
-
-\setlength{\parindent}{25pt}
 
 \begin{document} % НАЧАЛО ДОКУМЕНТА
 
 \begin{center}
 	\textbf{\large{Основной государственный экзамен по [ПРЕДМЕТ]}}
-\end{center}
-
-\begin{center}
+	
+	\bigskip
+	
 	\textbf{\large Инструкция по выполнению работы}
 \end{center}
 
@@ -62,7 +33,7 @@
 Экзаменационная работа состоит из двух частей, включающих в себя
 [КОЛИЧЕСТВО ЗАДАНИЙ] заданий. Часть 1 содержит [КОЛИЧЕСТВО ЗАДАНИЙ 1 ЧАСТИ] заданий, часть 2 содержит [КОЛИЧЕСТВО ЗАДАНИЙ 2 ЧАСТИ] заданий.
 
-На выполнение экзаменационной работы по музыке отводится
+На выполнение экзаменационной работы по [ПРЕДМЕТУ] отводится
 [ВСЕГО ЧАСОВ] ([ВСЕГО МИНУТ]).
 
 % Напишите ваши требования к ответам на задачи
@@ -116,46 +87,77 @@
 \newpage
 
 \begin{center}
-	\textbf{\large{Часть 1}}
-\end{center}
+\textbf{\large{Часть 1}}
 
 % Изменить под ваши требования к первой части
 
-\begin{center}
-\descbox{
-	\textbf{
-		\textit{
-			Ответами к заданиям 1–[ВСЕГО ЗАДАНИЙ] являются число или последовательность
-			цифр, которые следует записать в БЛАНК ОТВЕТОВ № 1 справа от
-			номера соответствующего задания, начиная с первой клеточки. Если
-			ответом является последовательность цифр, то запишите её \underline{без
-			пробелов и других дополнительных символов}. Каждый символ пишите
-			в отдельной клеточке в соответствии с приведёнными в бланке
-			образцами.
-		}
-	}
+\descbox{\textit{\textbf{%
+	Ответами к заданиям 1–[ВСЕГО ЗАДАНИЙ] являются число или последовательность
+	цифр, которые следует записать в БЛАНК ОТВЕТОВ № 1 справа от
+	номера соответствующего задания, начиная с первой клеточки. Если
+	ответом является последовательность цифр, то запишите её \underLine[top=-0.1ex]{без
+	пробелов и других дополнительных символов}. Каждый символ пишите
+	в отдельной клеточке в соответствии с приведёнными в бланке
+	образцами.}}
 }
 \end{center}
 
 \task{1}
 [ТЕКСТ ПЕРВОГО ЗАДАНИЯ]
+
+\answerfield
+
 \bigskip
 \bigskip
 
 \task{2}
 [ТЕКСТ ВТОРОГО ЗАДАНИЯ]
 
-\begin{oneparchoices}
+\numberchoices{%
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
 	\CorrectChoice [ПРАВИЛЬНЫЙ ВЫБОР]
 	\choice [ВЫБОР]
-\end{oneparchoices}
+}
+
+\answerbox
 
 \bigskip
 \bigskip
 
 \task{3}
 [ТЕКСТ ТРЕТЬЕГО ЗАДАНИЯ]
+
+\letterchoices{%
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+}
+
+\bigskip
+
+\numberchoices{%
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+	\choice [ВЫБОР]
+}
+
+
+\answertable[4]{А, Б, В, Г}
+
+\newpage
+
+\begin{center}
+	\textbf{\large{Часть 2}}
+	
+	\descbox{\textit{\textbf{%
+				При выполнении заданий 20–25 используйте БЛАНК ОТВЕТОВ № 2.
+				Сначала укажите номер задания, а затем запишите его решение
+				и ответ. Пишите чётко и разборчиво.}}
+	}
+\end{center}
+
 
 \end{document}
