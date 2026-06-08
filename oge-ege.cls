@@ -21,18 +21,38 @@
 \LoadClass[12pt]{exam}
 
 \RequirePackage[a4paper, margin=1.25in, includehead, includefoot]{geometry}
-\RequirePackage{fontspec}
-\RequirePackage{polyglossia}
-\RequirePackage{ifluatex}
+\RequirePackage{iftex}
+\RequirePackage{tikz}
 \RequirePackage{xcolor}
 
-\setdefaultlanguage{russian}
-\setmainfont{Liberation Serif}
+\ifPDFTeX
+	\RequirePackage[T2A]{fontenc}
+	\RequirePackage{inputenc}
+	\RequirePackage[english,russian]{babel}
+	\RequirePackage{libertinus}
+\else
+	\RequirePackage{fontspec}
+	\RequirePackage{polyglossia}
+	\setdefaultlanguage{russian}
+	\setmainfont{Libertinus Serif}	
+\fi
 
 \newcommand{\task}[1]{%
 	\noindent
 	\makebox[0pt][r]{%
 		\fbox{\makebox[0.8cm][c]{\textbf{#1}}}%
+		\hspace{0.2cm}%
+	}%
+	\ignorespaces
+}
+
+\newcommand{\warningsign}{%
+	\leavevmode
+	\makebox[0pt][r]{%
+		\begin{tikzpicture}[baseline=-0.5ex]
+			\draw[line width=3pt] (0,0) circle (0.75cm);
+			\node at (0,0) {\fontsize{45}{60}\selectfont\bfseries !};
+		\end{tikzpicture}%
 		\hspace{0.2cm}%
 	}%
 	\ignorespaces
@@ -75,26 +95,6 @@
 		end
 		tex.print(table.concat(cells, " & "))
 	end
-	
-	function split(inputstr, sep)
-		if sep == nil then
-			sep = "%s"
-		end
-		local t = {}
-		for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-			table.insert(t, str)
-		end
-		return t
-	end
-	
-	function create_row(n)
-		local data = split(n, ",")
-		for index, value in ipairs(data) do
-			data[index] = value:match("^%s*(.-)%s*$")
-		end
-		tex.print(table.concat(data, " & "))
-		-- tex.print("A & B & C")
-	end
 \end{luacode}
 
 \newcommand{\answertable}[2][3]{%
@@ -103,8 +103,7 @@
 	Ответ: 
 	\begin{tabular}{*{#1}{|c}|}
 		\hline
-		\edef\temp{\luaescapestring{#2}}
-		\directlua{create_row("\temp")} \\
+		#2 \\
 		\hline
 		\directlua{create_empty_row(#1)} \\
 		\hline
@@ -135,8 +134,21 @@
 
 \renewcommand{\choicelabel}{\thechoice)}
 
+\newcommand{\subject}{ПРЕДМЕТ}
+\newcommand{\klas}{9}
+
+\newcommand{\setsubject}[1]{
+	\renewcommand{\subject}{#1}
+}
+
+\newcommand{\setklas}[1]{
+	\renewcommand{\klas}{#1}
+}
+
 \makeatletter
 \footer{}{\small© {\@date} \@author}{}
 \makeatother
+
+\header{}{}{\subject, \klas \ класс\hspace{1cm}(\thepage/\numpages)}
 
 \setlength{\parindent}{25pt}
