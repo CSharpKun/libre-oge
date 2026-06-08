@@ -1,4 +1,4 @@
-%% oge-ege.cls
+%% libre-oge.cls
 %% Copyright 2026 CSharpKun & PositiveCHEEK
 %
 % This work may be distributed and/or modified under the
@@ -14,7 +14,7 @@
 % The Current Maintainer of this work is CSharpKun
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{oge-ege}[OGE and EGE class for Russian Exams]
+\ProvidesClass{libre-oge}[LaTeX class for Russian Exams (aka OGE, EGE, VPR)]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{exam}}
 \ProcessOptions\relax
