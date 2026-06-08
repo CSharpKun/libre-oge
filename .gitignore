@@ -19,6 +19,7 @@
 *.fdb_latexmk
 *.xdv
 svg-inkscape/
+tmp-ly/
 
 # ---- Результат компиляции ----
 *.pdf

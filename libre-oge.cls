@@ -20,10 +20,11 @@
 \ProcessOptions\relax
 \LoadClass[12pt]{exam}
 
-\RequirePackage[a4paper, margin=1.25in, includehead, includefoot]{geometry}
+\RequirePackage[a4paper, margin=1.0in, includehead, includefoot]{geometry}
 \RequirePackage{iftex}
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
+\RequirePackage[fontsize=14.0pt]{fontsize}
 
 \ifPDFTeX
 	\RequirePackage[T2A]{fontenc}
@@ -32,18 +33,24 @@
 	\RequirePackage{libertinus}
 \else
 	\RequirePackage{fontspec}
+	\RequirePackage{unicode-math}
+	\setmainfont{Libertinus Serif}
+	\setsansfont{Libertinus Sans}
+	\setmonofont{Libertinus Mono}
+	\setmathfont{Libertinus Math}	
 	\RequirePackage{polyglossia}
 	\setdefaultlanguage{russian}
-	\setmainfont{Libertinus Serif}	
+	\setotherlanguage{english}
 \fi
 
-\newcommand{\task}[1]{%
-	\noindent
-	\makebox[0pt][r]{%
-		\fbox{\makebox[0.8cm][c]{\textbf{#1}}}%
-		\hspace{0.2cm}%
-	}%
-	\ignorespaces
+\NewDocumentEnvironment{task}{m}{%
+	\begin{minipage}{\textwidth}
+		\noindent
+		\makebox[0pt][r]{\fbox{\makebox[0.8cm][c]{\textbf{#1}}}\hspace{0.2cm}}%
+		\ignorespaces
+	}{%
+	\end{minipage}
+	\bigskip\bigskip
 }
 
 \newcommand{\warningsign}{%
@@ -149,6 +156,6 @@
 \footer{}{\small© {\@date} \@author}{}
 \makeatother
 
-\header{}{}{\subject, \klas \ класс\hspace{1cm}(\thepage/\numpages)}
+\header{}{}{\subject, \klas \ класс\hspace{1cm}\thepage\space/\space\numpages}
 
 \setlength{\parindent}{25pt}
