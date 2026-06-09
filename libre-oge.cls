@@ -16,15 +16,23 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{libre-oge}[LaTeX class for Russian Exams (aka OGE, EGE, VPR)]
 
+\newif\ifdrm
+\DeclareOption{drm}{\drmtrue}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{exam}}
 \ProcessOptions\relax
+
 \LoadClass[12pt]{exam}
 
 \RequirePackage[a4paper, margin=1.0in, includehead, includefoot]{geometry}
 \RequirePackage{iftex}
+\RequirePackage{pgffor}
 \RequirePackage{tikz}
+\RequirePackage{eso-pic}
 \RequirePackage{xcolor}
 \RequirePackage[fontsize=14.0pt]{fontsize}
+
+\usetikzlibrary{patterns, calc}
 
 \ifPDFTeX
 	\RequirePackage[T2A]{fontenc}
@@ -141,6 +149,7 @@
 
 \renewcommand{\choicelabel}{\thechoice)}
 
+\newcommand{\id}{00000000}
 \newcommand{\subject}{ПРЕДМЕТ}
 \newcommand{\klas}{9}
 
@@ -152,10 +161,89 @@
 	\renewcommand{\klas}{#1}
 }
 
+\newcommand{\setid}[1]{
+	\renewcommand{\id}{#1}
+}
+
+\header{\footnotesize\id}{}{\subject. \klas \ класс\hspace{1cm}(\thepage\space/\space\numpages)}
+
 \makeatletter
 \footer{}{\small© {\@date} \@author}{}
 \makeatother
 
-\header{}{}{\subject, \klas \ класс\hspace{1cm}\thepage\space/\space\numpages}
-
 \setlength{\parindent}{25pt}
+
+
+
+\ifdrm
+
+\newcommand{\drmcircle}{%
+	\draw (\x*\step cm + 0.15cm, \y*\step cm + 0.15cm) circle (0.2cm);
+}
+
+\newcommand{\drmsquare}{%
+	\draw (\x*\step cm, \y*\step cm) rectangle ++(0.3cm,0.3cm);
+}
+
+\newcommand{\drmx}{%
+	\draw (\x*\step cm, \y*\step cm) -- ++(0.3cm,0.3cm);
+	\draw (\x*\step cm + 0.3cm, \y*\step cm) -- ++(-0.3cm,0.3cm);
+}
+
+\newcommand{\drmminus}{%
+	\draw (\x*\step cm, \y*\step cm + 0.15cm) -- ++(0.3cm,0cm);
+}
+
+\newcommand{\drmup}{%
+	\draw (\x*\step cm + 0.15cm, \y*\step cm) -- ++(0cm,0.3cm);
+}
+
+\newcommand{\drmcirclex}{%
+	\drmcircle
+	\drmx
+}
+
+\newcommand{\drmsquarex}{%
+	\drmsquare
+	\drmx
+}
+
+\newcommand{\drmsquareminus}{%
+	\drmsquare
+	\drmminus
+}
+
+\newcommand{\drmsquareplus}{
+	\drmsquare
+	\drmminus
+	\drmup
+}
+
+\AddToShipoutPictureBG{%
+	\begin{tikzpicture}[remember picture, overlay]
+		\begin{scope}[thin, gray!40]
+			\pgfmathsetmacro{\step}{0.75}
+			\pgfmathparse{random(0,6)}\let\shift\pgfmathresult
+			\foreach \y in {-3,-2,...,45} {
+				\pgfmathsetmacro{\phase}{-(\y + 5)}
+				\foreach \x in {-8,-7,...,30} {
+					\pgfmathparse{int(round(\x + \phase))}
+					\pgfmathresult
+					\pgfmathparse{int(mod(abs(\pgfmathresult) + \shift, 7))}
+					\pgfmathresult
+					\ifnum\pgfmathresult=0 \drmsquare \fi
+					\ifnum\pgfmathresult=1 \drmcircle \fi
+					\ifnum\pgfmathresult=2 \drmx \fi
+					\ifnum\pgfmathresult=3 \drmcirclex \fi
+					\ifnum\pgfmathresult=4 \drmsquarex \fi
+					\ifnum\pgfmathresult=5 \drmsquareminus \fi
+					\ifnum\pgfmathresult=6 \drmsquareplus \fi
+				}
+			}
+		\end{scope}
+	\end{tikzpicture}%
+}
+\fi
+
+
+

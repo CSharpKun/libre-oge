@@ -19,12 +19,17 @@
 
 \author{CSharpKun \& PositiveCHEEK}
 \date{2026}
+\setid{00000001}
 \setsubject{МУЗЫКА}
 \setklas{9}
 
 \begin{document} % НАЧАЛО ДОКУМЕНТА
 
 \begin{center}
+	\textbf{\large{Номер: \id}}
+	
+	\bigskip
+	
 	\textbf{\large{Основной государственный экзамен по МУЗЫКЕ}}
 	
 	\bigskip
@@ -98,11 +103,11 @@
 \begin{task}{1}
 	Подпишите названия данных нот в указанном ключе.
 	
+	\bigskip
+	
 	\begin{lilypond}
-		\relative c' {
-			\clef treble
-			c' d e f g a b c
-		}
+		\time 128/256
+		c' e' d' b''
 	\end{lilypond}
 	
 	\answerfield
@@ -117,7 +122,20 @@
 \begin{task}{3}
 	Определите размер данной мелодии.
 	
-	\answerfield
+	\begin{lilypond}
+		\hide Staff.TimeSignature
+		\time 3/4
+		c' e' d' b''
+	\end{lilypond}
+	
+	\numberchoices{%
+		\choice 1/4
+		\choice 1/2
+		\choice 4/4
+		\choice 3/4
+	}
+	
+	\answerbox
 \end{task}
 
 \begin{task}{4}

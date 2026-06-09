@@ -1,0 +1,16 @@
+site_name: Libre-OGE Docs
+nav:
+  - Home: index.md
+  - About: about.md
+theme: material
+plugins:
+  - search
+  - i18n:
+      languages:
+        - locale: ru
+          name: Русский
+          build: true
+        - locale: en
+          default: true
+          name: English
+          build: true
