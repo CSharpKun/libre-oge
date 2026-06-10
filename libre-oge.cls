@@ -14,17 +14,31 @@
 % The Current Maintainer of this work is CSharpKun
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{libre-oge}[LaTeX class for Russian Exams (aka OGE, EGE, VPR)]
+\ProvidesClass{libre-oge}[LaTeX class for Russian Exams (ОГЭ, ЕГЭ, ВПР, ГВЭ)]
 
 \newif\ifdrm
+\newif\ifvpr
 \DeclareOption{drm}{\drmtrue}
+\DeclareOption{vpr}{\vprtrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{exam}}
 \ProcessOptions\relax
 
 \LoadClass[12pt]{exam}
 
+\ifvpr
+\RequirePackage[
+	a4paper, 
+	top=2cm, 
+	bottom=2cm, 
+	left=3cm, 
+	right=2cm, 
+	includehead, 
+	includefoot
+]{geometry}
+\else
 \RequirePackage[a4paper, margin=1.0in, includehead, includefoot]{geometry}
+\fi
 \RequirePackage{iftex}
 \RequirePackage{pgffor}
 \RequirePackage{tikz}
@@ -165,7 +179,15 @@
 	\renewcommand{\id}{#1}
 }
 
+\ifvpr
+
+\header{ВПР. \subject. \klas \ класс.}{}{\LARGErr{\fbox{\textcolor{gray}{Код}\hspace{4.75cm}}}}
+
+\else
+
 \header{\footnotesize\id}{}{\subject. \klas \ класс\hspace{1cm}(\thepage\space/\space\numpages)}
+
+\fi
 
 \makeatletter
 \footer{}{\small© {\@date} \@author}{}

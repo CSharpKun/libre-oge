@@ -1,6 +1,7 @@
 site_name: Libre-OGE Docs
 nav:
   - Home: index.md
+  - Class API: api.md
   - About: about.md
 theme: material
 plugins:
