@@ -46,7 +46,7 @@
 \RequirePackage{xcolor}
 \RequirePackage[fontsize=14.0pt]{fontsize}
 
-\usetikzlibrary{patterns, calc}
+\usetikzlibrary{patterns, calc, tikzmark}
 
 \ifPDFTeX
 	\RequirePackage[T2A]{fontenc}
@@ -65,15 +65,32 @@
 	\setotherlanguage{english}
 \fi
 
+
+
 \NewDocumentEnvironment{task}{m}{%
+	\setlength{\parindent}{0pt}%
 	\begin{minipage}{\textwidth}
-		\noindent
-		\makebox[0pt][r]{\fbox{\makebox[0.8cm][c]{\textbf{#1}}}\hspace{0.2cm}}%
-		\ignorespaces
-	}{%
+		\ifvpr%
+			\begin{tikzpicture}[remember picture, overlay]
+				\draw[line width=0.6pt] (-1.25,0.15) circle (0.5cm);
+				\node at (-1.25,0.15) {\textbf{#1}};
+			\end{tikzpicture}%
+		\else%
+			\makebox[0pt][r]{\fbox{\makebox[0.8cm][c]{\textbf{#1}}}\hspace{0.2cm}}%
+		\fi%
+		\ignorespaces%
+}%
+{%
+	\par
+	\begin{tikzpicture}[remember picture, overlay]
+		\coordinate (bottomleft) at (current page.north west);
+		\draw[dotted] (-1.75, 1.5) rectangle ++(1cm,-1cm);
+	\end{tikzpicture}%
 	\end{minipage}
 	\bigskip\bigskip
 }
+
+
 
 \newcommand{\warningsign}{%
 	\leavevmode
@@ -145,6 +162,29 @@
 }
 \fi
 
+\newcommand{\vpranswerfield}{%
+	\par
+	\begin{tikzpicture}
+		\draw[step=0.5cm, thick] (0,0) grid (15, 1.5);
+		\fill[white] (0.015,0) rectangle (2.5, 1.5);
+		\draw[thick] (0.015,0) rectangle (2.5, 1.5);
+		\node at (1.2575,0.75) {Ответ:};
+	\end{tikzpicture}%
+}
+
+\newcommand{\vpradvancedanswerfield}{%
+	\par
+	\begin{tikzpicture}
+		\draw[step=0.5cm, thick] (0,0) grid (17.5, 21);
+		\fill[white] (0.015,20) rectangle (2.5, 21);
+		\draw[thick] (0.015,20) rectangle (2.5, 21);
+		\node at (1.2575,20.5) {Решение.};
+		\fill[white] (0.015,0) rectangle (2.5, 1.5);
+		\draw[thick] (0.015,0) rectangle (2.5, 1.5);
+		\node at (1.2575,0.75) {Ответ:};
+	\end{tikzpicture}%
+}
+
 \newcommand{\numberchoices}[1]{%
 	\renewcommand{\thechoice}{\arabic{choice}}%
 	\noindent\ignorespaces
@@ -193,9 +233,11 @@
 \footer{}{\small© {\@date} \@author}{}
 \makeatother
 
+\ifvpr
+\setlength{\parindent}{40pt}
+\else
 \setlength{\parindent}{25pt}
-
-
+\fi
 
 \ifdrm
 
