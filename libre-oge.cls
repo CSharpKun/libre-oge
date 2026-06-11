@@ -16,9 +16,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{libre-oge}[LaTeX class for Russian Exams (ОГЭ, ЕГЭ, ВПР, ГВЭ)]
 
-\newif\ifdrm
 \newif\ifvpr
-\DeclareOption{drm}{\drmtrue}
 \DeclareOption{vpr}{\vprtrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{exam}}
@@ -42,11 +40,10 @@
 \RequirePackage{iftex}
 \RequirePackage{pgffor}
 \RequirePackage{tikz}
-\RequirePackage{eso-pic}
 \RequirePackage{xcolor}
 \RequirePackage[fontsize=14.0pt]{fontsize}
 
-\usetikzlibrary{patterns, calc, tikzmark}
+\usetikzlibrary{patterns, calc, matrix}
 
 \ifPDFTeX
 	\RequirePackage[T2A]{fontenc}
@@ -81,11 +78,13 @@
 		\ignorespaces%
 }%
 {%
-	\par
-	\begin{tikzpicture}[remember picture, overlay]
-		\coordinate (bottomleft) at (current page.north west);
-		\draw[dotted] (-1.75, 1.5) rectangle ++(1cm,-1cm);
-	\end{tikzpicture}%
+	\ifvpr
+		\par
+		\begin{tikzpicture}[remember picture, overlay]
+			\coordinate (bottomleft) at (current page.north west);
+			\draw[dotted] (-1.75, 1.75) rectangle ++(1cm,-1cm);
+		\end{tikzpicture}%
+	\fi
 	\end{minipage}
 	\bigskip\bigskip
 }
@@ -162,10 +161,11 @@
 }
 \fi
 
-\newcommand{\vpranswerfield}{%
+\newcommand{\vpranswerfield}[1][27]{%
 	\par
 	\begin{tikzpicture}
-		\draw[step=0.5cm, thick] (0,0) grid (15, 1.5);
+		\pgfmathsetmacro{\xmax}{(#1+5)/2}
+		\draw[step=0.5cm, thick] (0,0) grid (\xmax, 1.5);
 		\fill[white] (0.015,0) rectangle (2.5, 1.5);
 		\draw[thick] (0.015,0) rectangle (2.5, 1.5);
 		\node at (1.2575,0.75) {Ответ:};
@@ -175,7 +175,7 @@
 \newcommand{\vpradvancedanswerfield}{%
 	\par
 	\begin{tikzpicture}
-		\draw[step=0.5cm, thick] (0,0) grid (17.5, 21);
+		\draw[step=0.5cm, thick] (0,0) grid (16, 21);
 		\fill[white] (0.015,20) rectangle (2.5, 21);
 		\draw[thick] (0.015,20) rectangle (2.5, 21);
 		\node at (1.2575,20.5) {Решение.};
@@ -221,7 +221,7 @@
 
 \ifvpr
 
-\header{ВПР. \subject. \klas \ класс.}{}{\LARGErr{\fbox{\textcolor{gray}{Код}\hspace{4.75cm}}}}
+\header{ВПР. \subject. \klas \ класс.}{}{\LARGErr{\fbox{\textcolor{gray}{Код}\hspace{5cm}}}}
 
 \else
 
@@ -237,76 +237,6 @@
 \setlength{\parindent}{40pt}
 \else
 \setlength{\parindent}{25pt}
-\fi
-
-\ifdrm
-
-\newcommand{\drmcircle}{%
-	\draw (\x*\step cm + 0.15cm, \y*\step cm + 0.15cm) circle (0.2cm);
-}
-
-\newcommand{\drmsquare}{%
-	\draw (\x*\step cm, \y*\step cm) rectangle ++(0.3cm,0.3cm);
-}
-
-\newcommand{\drmx}{%
-	\draw (\x*\step cm, \y*\step cm) -- ++(0.3cm,0.3cm);
-	\draw (\x*\step cm + 0.3cm, \y*\step cm) -- ++(-0.3cm,0.3cm);
-}
-
-\newcommand{\drmminus}{%
-	\draw (\x*\step cm, \y*\step cm + 0.15cm) -- ++(0.3cm,0cm);
-}
-
-\newcommand{\drmup}{%
-	\draw (\x*\step cm + 0.15cm, \y*\step cm) -- ++(0cm,0.3cm);
-}
-
-\newcommand{\drmcirclex}{%
-	\drmcircle
-	\drmx
-}
-
-\newcommand{\drmsquarex}{%
-	\drmsquare
-	\drmx
-}
-
-\newcommand{\drmsquareminus}{%
-	\drmsquare
-	\drmminus
-}
-
-\newcommand{\drmsquareplus}{
-	\drmsquare
-	\drmminus
-	\drmup
-}
-
-\AddToShipoutPictureBG{%
-	\begin{tikzpicture}[remember picture, overlay]
-		\begin{scope}[thin, gray!40]
-			\pgfmathsetmacro{\step}{0.75}
-			\pgfmathparse{random(0,6)}\let\shift\pgfmathresult
-			\foreach \y in {-3,-2,...,45} {
-				\pgfmathsetmacro{\phase}{-(\y + 5)}
-				\foreach \x in {-8,-7,...,30} {
-					\pgfmathparse{int(round(\x + \phase))}
-					\pgfmathresult
-					\pgfmathparse{int(mod(abs(\pgfmathresult) + \shift, 7))}
-					\pgfmathresult
-					\ifnum\pgfmathresult=0 \drmsquare \fi
-					\ifnum\pgfmathresult=1 \drmcircle \fi
-					\ifnum\pgfmathresult=2 \drmx \fi
-					\ifnum\pgfmathresult=3 \drmcirclex \fi
-					\ifnum\pgfmathresult=4 \drmsquarex \fi
-					\ifnum\pgfmathresult=5 \drmsquareminus \fi
-					\ifnum\pgfmathresult=6 \drmsquareplus \fi
-				}
-			}
-		\end{scope}
-	\end{tikzpicture}%
-}
 \fi
 
 
