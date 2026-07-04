@@ -1,12 +1,13 @@
 % ==========================================
 % Copyright (c) 2026 CSharpKun & PositiveCHEEK
 % This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-% To view a copy of this license, visit http://creativecommons.org
+% To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0
 % ==========================================
 
 \documentclass{../../libre-oge}
 \usepackage{lua-ul}
 \usepackage{lyluatex}
+\usepackage{svg}
 
 \author{CSharpKun \& PositiveCHEEK}
 \date{2026}
@@ -17,20 +18,12 @@
 \begin{document}
 
 \begin{center}
-	\textbf{\large{Номер: \id}}
-	
-	\bigskip
-	
-	\textbf{\large{Основной государственный экзамен по МУЗЫКЕ}}
-	
-	\bigskip
-	
 	\textbf{\large Инструкция по выполнению работы}
 \end{center}
 
 
 Экзаменационная работа состоит из двух частей, включающих в себя
-25 заданий. Часть 1 содержит 20 заданий, часть 2 содержит 5 заданий с развернутым ответом.
+19 заданий. Часть 1 содержит 14 заданий, часть 2 содержит 5 заданий с развернутым ответом.
 
 На выполнение экзаменационной работы по ПРЕДМЕТУ отводится
 3 часа (180 минут).
@@ -81,8 +74,8 @@
 \smallskip
 
 \descbox{\textit{\textbf{%
-	Ответами к заданиям 1–20 являются число, последовательность
-	цифр, слово или фраза, которые следует записать в БЛАНК ОТВЕТОВ № 1 справа от
+	Ответами к заданиям 1–14 являются число, последовательность
+	цифр или слово, которые следует записать в БЛАНК ОТВЕТОВ № 1 справа от
 	номера соответствующего задания, начиная с первой клеточки. Если
 	ответом является последовательность цифр или фраза, то запишите её \underLine[top=-0.1ex]{без
 	пробелов и других дополнительных символов}. Каждый символ пишите
@@ -92,42 +85,52 @@
 \end{center}
 
 \begin{task}{1}
-	Подпишите названия данных нот в указанном ключе.
+	Подпишите названия данных ступеней в указанном ключе.
 	
 	\bigskip
 	
-	\begin{lilypond}
-		\time 4/4
-		c' e' d' b'' c' d'
+	\begin{lilypond} 
+		\relative c' {
+			\clef "treble" \numericTimeSignature \time 4/4 \key c \major \U c4 \U e4 \U g4
+			\U e4 | % 1
+			\U a4 \U g4 \U f4 \U e4 | % 2
+			\U d4 \U g,4 \U a4 \U b4 | % 3
+			c1 \bar "||" % 4
+		}
 	\end{lilypond}
 	
 	\answerfield
 \end{task}
 
+
+
 \begin{task}{2}
-	Определите количество знаков в тональности "[Тональность]".
+	Определите количество знаков в тональности "Ми Мажор".
 	
-	\answerfield
+	\answerbox
 \end{task}
 
 \begin{task}{3}
 	Определите размер данной мелодии.
 	
 	\begin{lilypond}
-		\hide Staff.TimeSignature
-		\time 3/4
-		
 		\relative c' {
-			c e d b''
+			\omit Staff.TimeSignature
+			\override Staff.BarLine.break-visibility = ##(#f #f #f)
+			\clef "treble" 
+			\time 3/4 
+			\key e \minor 
+			\U e8 \U g8 \U b8 \U g8 \U b8 \U g8| % 1
+			\U e8 \U g8 \U b8 \U g8 \U b8 \U g8 \bar "||" % 2
 		}
 	\end{lilypond}
 	
-	\numberchoices{%
-		\choice 1/4
-		\choice 1/2
-		\choice 4/4
-		\choice 3/4
-	}
+	\begin{numberchoices}%
+		\choice 5/4%
+		\choice 4/4%
+		\choice 2/4%
+		\choice 3/4%
+	\end{numberchoices}%
 	
 	\answerbox
 \end{task}
@@ -141,7 +144,23 @@
 \begin{task}{5}
 	Выберите из предложенного верное название данного аккорда.
 	
-	\answerfield
+	\begin{lilypond}
+		\relative c' 
+		{
+			\omit Staff.TimeSignature
+			<fis a d>1 
+		}
+	\end{lilypond}
+	
+	\begin{numberchoices}%
+		\choice Секстаккорд%
+		\choice Квартсекстаккорд%
+		\newline%
+		\choice Септаккорд%
+		\choice Квартсептаккорд%
+	\end{numberchoices}
+	
+	\answerbox
 \end{task}
 
 \begin{task}{6}
@@ -151,19 +170,69 @@
 \end{task}
 
 \begin{task}{7}
-	Выпишите номера инструментов, входящих в группу [Группа].
+	Выпишите номера инструментов, входящих в группу меднодуховых.
+
+	\begin{numberchoices}%
+		\choice Туба%
+		\choice Кларнет%
+		\newline%
+		\choice Тромбон%
+		\choice Саксофон%
+		\newline%
+		\choice Гобой%
+		\choice Фагот%
+	\end{numberchoices}%
 	
 	\answerfield
 \end{task}
 
 \begin{task}{8}
-	Выберите верный вариант написания [Название ключа] ключа.
+	Выберите верный вариант написания Тенорового ключа.
 	
-	\answerfield
+	\begin{numberchoices}%
+		\choice\hspace{-1.5em}\lilypond{%
+			\omit Staff.TimeSignature
+			\omit Staff.BarLine
+			\omit Staff.ClefModifier
+			\clef "treble"
+			s4
+		}%
+		\choice\hspace{-1.5em}\lilypond{%
+			\omit Staff.TimeSignature
+			\omit Staff.BarLine
+			\omit Staff.ClefModifier
+			\clef "alto"
+			s4
+		}%
+		\choice\hspace{-1.5em}\lilypond{%
+			\omit Staff.TimeSignature
+			\omit Staff.BarLine
+			\omit Staff.ClefModifier
+			\clef "tenor"
+			s4
+		}%
+		\choice\hspace{-1.5em}\lilypond{%
+			\omit Staff.TimeSignature
+			\omit Staff.BarLine
+			\omit Staff.ClefModifier
+			\clef "bass"
+			s4
+		}%
+	\end{numberchoices}
+	
+	\answerbox
 \end{task}
 
 \begin{task}{9}
 	Определите данную длительность.
+	
+	\begin{lilypond}
+		\omit Staff.TimeSignature
+		\omit Staff.BarLine
+		\relative c' {
+			c256
+		}
+	\end{lilypond}
 	
 	\answerfield
 \end{task}
@@ -171,67 +240,61 @@
 \begin{task}{10}
 	Напишите, о каком музыкальном инструменте идёт речь в тексте.
 	
+	\bigskip
+	
+	\setlength{\parindent}{25pt}
+	
+	Он был изобретен итальянцами в XVI в. и носил название «дульциан», что в переводе означает «нежный», «сладкозвучный». Первые версии этого инструмента были очень большими. 
+	
+	Его конструкция разборная и состоит из пяти съемных частей: раструба, трости, малого и большого колена и нижнего колена, которое еще называют сапогом или стволом. Корпус оснащен большим количеством отверстий, с помощью которых, попеременно открывая и закрывая их, музыкант меняет высоту звука. 
+	
+	Его тембр низкий и очень экспрессивный. Его партия записывается обычно в басовом либо теноровом ключах. Инструмент применяется в симфоническом, реже в духовом оркестре, а также как сольный и ансамблевый инструмент.
+	
+	\setlength{\parindent}{0pt}
+	
+	\bigskip
+	
 	\answerfield
 \end{task}
 
 \begin{task}{11}
 	Выберите верное значение данного мелодического украшения: [Знак].
 	
-	\answerfield
+	\begin{lilypond}
+		\relative c' {
+			\omit Staff.TimeSignature
+			c4\mordent
+		}
+	\end{lilypond}
+	
+	\begin{numberchoices}
+		\choice Ыа
+		\choice Ыа
+		\choice Ыа
+		\choice Ыа
+	\end{numberchoices}
+	
+	\answerbox
 \end{task}
 
 \begin{task}{12}
-	Запишите страну происхождения танца "[Танец]".
+	Запишите страну происхождения танца "Полька".
 	
 	\answerfield
 \end{task}
 
 \begin{task}{13}
-	Запишите название обращенной [Интервал].
+	Запишите название обращенной Большой Септимы.
 	
 	\answerfield
 \end{task}
 
 \begin{task}{14}
-	Нет задания.
+	Напишите номер клавиши, обозначающей шестую ступень в тональности Фа Мажор.
 	
-	\answerfield
-\end{task}
-
-\begin{task}{15}
-	Нет задания.
+	\includesvg[width=0.5\textwidth]{piano.svg}
 	
-	\answerfield
-\end{task}
-
-\begin{task}{16}
-	Нет задания.
-	
-	\answerfield
-\end{task}
-
-\begin{task}{17}
-	Нет задания.
-	
-	\answerfield
-\end{task}
-
-\begin{task}{18}
-	Нет задания.
-	
-	\answerfield
-\end{task}
-
-\begin{task}{19}
-	Нет задания.
-	
-	\answerfield
-\end{task}
-
-\begin{task}{20}
-	Нет задания.
-	
-	\answerfield
+	\answerbox
 \end{task}
 
 \begin{center}

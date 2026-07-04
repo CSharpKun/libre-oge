@@ -1,30 +1,24 @@
 % ==========================================
 % Copyright (c) 2026 CSharpKun & PositiveCHEEK
 % This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-% To view a copy of this license, visit http://creativecommons.org
+% To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0
 % ==========================================
 
 % Шаблон ОГЭ
 
 \documentclass{libre-oge}
 \usepackage{lua-ul}
+%\usepackage{region-patterns}
 
 \author{CSharpKun \& PositiveCHEEK}
 \date{2026}
+\setid{00000000}
 \setsubject{ПРЕДМЕТ}
 \setklas{9}
 
 \begin{document}
 
 \begin{center}
-	\textbf{\large{Номер: \id}}
-	
-	\smallskip
-	
-	\textbf{\large{Основной государственный экзамен по \subject}}
-	
-	\smallskip
-	
 	\textbf{\large Инструкция по выполнению работы}
 \end{center}
 
@@ -112,12 +106,12 @@
 \begin{task}{2}
 Задание на выбор ответа
 
-\numberchoices{%
+\begin{numberchoices}
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
 	\CorrectChoice [ПРАВИЛЬНЫЙ ВЫБОР]
 	\choice [ВЫБОР]
-}
+\end{numberchoices}
 
 \answerbox
 
@@ -126,21 +120,21 @@
 \begin{task}{3}
 Задание на соотнесение
 
-\letterchoices{%
+\begin{letterchoices}%
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
-}
+\end{letterchoices}
 
 \bigskip
 
-\numberchoices{%
+\begin{numberchoices}
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
 	\choice [ВЫБОР]
-}
+\end{numberchoices}
 
 \answertable[4]{А & Б & В & Г}
 

@@ -36,6 +36,8 @@
 ]{geometry}
 \else
 \RequirePackage[a4paper, margin=1.0in, includehead, includefoot]{geometry}
+\RequirePackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,landscape,border shrink=5mm]
 \fi
 \RequirePackage{iftex}
 \RequirePackage{pgffor}
@@ -62,7 +64,27 @@
 	\setotherlanguage{english}
 \fi
 
+\NewDocumentEnvironment{numberchoices}{}{%
+	\renewcommand{\thechoice}{\arabic{choice}}%
+	\noindent\ignorespaces%
+	\begin{oneparchoices}%
+	\hspace*{-\labelsep}%
+}%
+{%
+	\end{oneparchoices}%
+}%
 
+\NewDocumentEnvironment{letterchoices}{}{%
+	\renewcommand{\thechoice}{\Asbuk{choice}}%
+	\noindent\ignorespaces%
+	\begin{oneparchoices}%
+	\hspace*{-\labelsep}% 
+}%
+{%
+	\end{oneparchoices}
+}%
+
+\renewcommand{\choicelabel}{\thechoice)}
 
 \NewDocumentEnvironment{task}{m}{%
 	\setlength{\parindent}{0pt}%
@@ -73,7 +95,16 @@
 				\node at (-1.25,0.15) {\textbf{#1}};
 			\end{tikzpicture}%
 		\else%
-			\makebox[0pt][r]{\fbox{\makebox[0.8cm][c]{\textbf{#1}}}\hspace{0.2cm}}%
+			\makebox[0pt][r]{%
+				\fbox{%
+					\makebox[1.2cm][c]{%
+						\parbox[c][0.5cm][c]{1.0cm}{%
+							\centering \textbf{#1}%
+						}%
+					}%
+				}%
+				\hspace{0.4cm}%
+			}%
 		\fi%
 		\ignorespaces%
 }%
@@ -185,24 +216,6 @@
 	\end{tikzpicture}%
 }
 
-\newcommand{\numberchoices}[1]{%
-	\renewcommand{\thechoice}{\arabic{choice}}%
-	\noindent\ignorespaces
-	\begin{oneparchoices}
-		#1
-	\end{oneparchoices}%
-}
-
-\newcommand{\letterchoices}[1]{%
-	\renewcommand{\thechoice}{\Asbuk{choice}}%
-	\noindent\ignorespaces
-	\begin{oneparchoices}
-		#1
-	\end{oneparchoices}
-}
-
-\renewcommand{\choicelabel}{\thechoice)}
-
 \newcommand{\id}{00000000}
 \newcommand{\subject}{ПРЕДМЕТ}
 \newcommand{\klas}{9}
@@ -220,17 +233,35 @@
 }
 
 \ifvpr
-
 \header{ВПР. \subject. \klas \ класс.}{}{\LARGErr{\fbox{\textcolor{gray}{Код}\hspace{5cm}}}}
-
 \else
 
-\header{\footnotesize\id}{}{\subject. \klas \ класс\hspace{1cm}(\thepage\space/\space\numpages)}
+\newcommand{\calcpage}[1]{%
+	\pgfmathsetmacro{\result}{int(ceil(#1/2))}%
+	\result%
+}
 
+\header{%
+	\ifodd\value{page}%
+	\raisebox{0.2cm}{\footnotesize\textbf{\id}}%
+	\fi%
+}{}{%
+	\ifodd\value{page}%
+	\subject. \klas \ класс\hspace{1cm}(\calcpage{\thepage}\space/\space\calcpage{\numpages})%
+	\fi%
+}
 \fi
 
 \makeatletter
-\footer{}{\small© {\@date} \@author}{}
+\footer{}{%
+	\ifvpr
+		\small© {\@date} \@author%
+	\else
+		\ifodd\value{page}%
+			\small© {\@date} \@author%
+		\fi%
+	\fi%
+}{}
 \makeatother
 
 \ifvpr
@@ -239,5 +270,12 @@
 \setlength{\parindent}{25pt}
 \fi
 
-
+\ifvpr
+\else
+\AtBeginDocument{
+	\begin{center}
+		\textbf{\Large{Номер КИМ}\hspace{2cm}\LARGErr{\id}}
+	\end{center}
+}
+\fi
 

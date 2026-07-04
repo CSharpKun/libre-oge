@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- base template for piano 88 keyboard, edited by Vlad Coolish for wikipedia.org -->
+
+<svg
+   version="1.0"
+   width="172.843"
+   height="69.762756"
+   id="svg86"
+   sodipodi:docname="piano.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs86">
+    <rect
+       x="50.869206"
+       y="49.504423"
+       width="12.779337"
+       height="15.260762"
+       id="rect87" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview86"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.6992"
+     inkscape:cx="79.133914"
+     inkscape:cy="34.566255"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg86" />
+  <!-- White (ivory) block 52 key size 23*145/149 mm -->
+  <!-- C first C4 middle C -->
+  <!-- Black block 36 key size 9*95/99 mm -->
+  <rect
+     id="keyw"
+     width="23.047171"
+     height="68.974205"
+     rx="2.4049222"
+     ry="2.221988"
+     x="0.34053749"
+     y="0.44801298"
+     style="fill:#fffff0;fill-opacity:1;stroke:#000000;stroke-width:0.681075;stroke-opacity:1" />
+  <use
+     x="0"
+     xlink:href="#keyw"
+     id="use1"
+     transform="translate(24.000003)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyw"
+     id="use5"
+     transform="translate(47.857593,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyw"
+     id="use6"
+     transform="translate(71.857593,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyw"
+     id="use7"
+     transform="translate(95.857593,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyw"
+     id="use8"
+     transform="translate(119.85759,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyw"
+     id="use9"
+     transform="translate(143.69736,-0.06655449)"
+     y="0" />
+  <rect
+     id="keyb"
+     width="9.0184584"
+     height="45.828499"
+     rx="1.0020509"
+     ry="0.46291414"
+     x="19.629997"
+     y="0.56373948"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.99437;stroke-opacity:1" />
+  <use
+     x="0"
+     xlink:href="#keyb"
+     id="use54"
+     transform="translate(47.857593,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyb"
+     id="use55"
+     transform="translate(71.857593,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyb"
+     id="use56"
+     transform="translate(95.857593,-0.01523068)"
+     y="0" />
+  <use
+     x="0"
+     xlink:href="#keyb"
+     id="use57"
+     transform="translate(143.69736,-0.06655449)"
+     y="0" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:0;fill:#000000"
+     x="10.527793"
+     y="60.183887"
+     id="text86"
+     transform="translate(-0.54367501,5.675518)"><tspan
+       id="tspan86"
+       x="10.527793"
+       y="60.183887"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">1</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:0;fill:#000000"
+     x="10.527793"
+     y="60.183887"
+     id="text86-5"
+     transform="translate(23.50833,5.6515236)"><tspan
+       id="tspan86-6"
+       x="10.527793"
+       y="60.183887"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">3</tspan></text>
+  <text
+     xml:space="preserve"
+     id="text87"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect87);fill:#000000"
+     transform="translate(6.9605769,9.0898183)"><tspan
+       x="50.869141"
+       y="56.77759"
+       id="tspan1">4</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000"
+     x="81.861717"
+     y="65.835411"
+     id="text88"><tspan
+       sodipodi:role="line"
+       id="tspan88"
+       x="81.861717"
+       y="65.835411">6</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000"
+     x="105.86172"
+     y="65.835411"
+     id="text89"><tspan
+       sodipodi:role="line"
+       id="tspan89"
+       x="105.86172"
+       y="65.835411">8</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000"
+     x="127.8177"
+     y="65.835411"
+     id="text90"><tspan
+       sodipodi:role="line"
+       id="tspan90"
+       x="127.8177"
+       y="65.835411">10</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000"
+     x="151.82147"
+     y="65.859406"
+     id="text91"><tspan
+       sodipodi:role="line"
+       id="tspan91"
+       x="151.82147"
+       y="65.859406">11</tspan></text>
+  <text
+     xml:space="preserve"
+     style="writing-mode:lr-tb;direction:ltr;fill:#000000;-inkscape-font-specification:'Liberation Sans';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     x="20.471754"
+     y="35.360302"
+     id="text92"><tspan
+       sodipodi:role="line"
+       id="tspan92"
+       x="20.471754"
+       y="35.360302" /></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1"
+     x="22.283224"
+     y="44.587193"
+     id="text93"><tspan
+       sodipodi:role="line"
+       id="tspan93"
+       x="22.283224"
+       y="44.587193">2</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1"
+     x="70.148811"
+     y="44.555195"
+     id="text94"><tspan
+       sodipodi:role="line"
+       id="tspan94"
+       x="70.148811"
+       y="44.555195">5</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1"
+     x="94.096817"
+     y="44.559193"
+     id="text95"><tspan
+       sodipodi:role="line"
+       id="tspan95"
+       x="94.096817"
+       y="44.559193">7</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1"
+     x="118.08882"
+     y="44.547199"
+     id="text96"><tspan
+       sodipodi:role="line"
+       id="tspan96"
+       x="118.08882"
+       y="44.547199">9</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1"
+     x="163.97258"
+     y="44.587193"
+     id="text97"><tspan
+       sodipodi:role="line"
+       id="tspan97"
+       x="163.97258"
+       y="44.587193">12</tspan></text>
+</svg>
