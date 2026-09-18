@@ -55,6 +55,7 @@
 \else
 	\RequirePackage{fontspec}
 	\RequirePackage{unicode-math}
+	\RequirePackage{libertinus-otf}
 	\setmainfont{Libertinus Serif}
 	\setsansfont{Libertinus Sans}
 	\setmonofont{Libertinus Mono}
