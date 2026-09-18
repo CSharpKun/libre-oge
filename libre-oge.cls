@@ -137,7 +137,7 @@
 
 \newcommand{\descbox}[1]{%
 	\fbox{%
-		\parbox{1.0\textwidth}{%
+		\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{%
 			#1
 		}%
 	}%
@@ -195,6 +195,7 @@
 
 \newcommand{\vpranswerfield}[1][27]{%
 	\par
+	\resizebox{\textwidth}{!}{%
 	\begin{tikzpicture}
 		\pgfmathsetmacro{\xmax}{(#1+5)/2}
 		\draw[step=0.5cm, thick] (0,0) grid (\xmax, 1.5);
@@ -202,10 +203,12 @@
 		\draw[thick] (0.015,0) rectangle (2.5, 1.5);
 		\node at (1.2575,0.75) {Ответ:};
 	\end{tikzpicture}%
+	}%
 }
 
 \newcommand{\vpradvancedanswerfield}{%
 	\par
+	\resizebox{\textwidth}{!}{%
 	\begin{tikzpicture}
 		\draw[step=0.5cm, thick] (0,0) grid (16, 21);
 		\fill[white] (0.015,20) rectangle (2.5, 21);
@@ -215,6 +218,7 @@
 		\draw[thick] (0.015,0) rectangle (2.5, 1.5);
 		\node at (1.2575,0.75) {Ответ:};
 	\end{tikzpicture}%
+	}%
 }
 
 \newcommand{\id}{00000000}
